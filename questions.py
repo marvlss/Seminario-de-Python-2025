@@ -25,7 +25,7 @@ correct_answers_index = [1, 2, 0, 3, 1]
 # Contador de puntaje del jugador
 points = 0
 # Combina las listas questions, answers y correct_answers_index en una lista de tuplas y selecciona aleatoriamente 3 de ellas
-questions_to_ask = random.choices(list(zip(questions, answers, correct_answers_index)), k=3)
+questions_to_ask = random.sample(list(zip(questions, answers, correct_answers_index)), k=3)
 # El usuario deberá contestar 3 preguntas
 for question,answer,correct_answer in questions_to_ask:
     # Se muestra la pregunta 
