@@ -26,14 +26,23 @@ correct_answers_index = [1, 2, 0, 3, 1]
 for _ in range(3):
     # Se selecciona una pregunta aleatoria
     question_index = random.randint(0, len(questions) - 1)
-
     # Se muestra la pregunta y las respuestas posibles
     print(questions[question_index])
     for i, answer in enumerate(answers[question_index]):
         print(f"{i + 1}. {answer}")
     # El usuario tiene 2 intentos para responder correctamente
     for intento in range(2):
-        user_answer = int(input("Respuesta: ")) - 1
+        user_answer = (input("Respuesta: ")) 
+        # Verifico que el dato ingresado se encuentre dentro del rango de respuestas posibles y, si lo está, lo convierte en int
+        for i in range (1,5):
+            i = str(i)
+            if user_answer == i:
+                user_answer = int(user_answer) - 1
+                break
+        # Verifico que el dato sea tipo int
+        if type(user_answer) != int:
+            print("Respuesta no válida")
+            exit(1)
         # Se verifica si la respuesta es correcta
         if user_answer == correct_answers_index[question_index]:
             print("¡Correcto!")
