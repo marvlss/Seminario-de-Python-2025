@@ -20,12 +20,15 @@ answers = [
     ),
     ("=", "==", "!=", "==="),
 ]
-# Índice de la respuesta correcta para cada pregunta, el el mismo orden que las preguntas
+# Índice de la respuesta correcta para cada pregunta, el el mismo orden que
+#  las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
 # Contador de puntaje del jugador
 points = 0
-# Combina las listas questions, answers y correct_answers_index en una lista de tuplas y selecciona aleatoriamente 3 de ellas
-questions_to_ask = random.sample(list(zip(questions, answers, correct_answers_index)), k=3)
+# Combina las listas questions, answers y correct_answers_index en una lista 
+# de tuplas y selecciona aleatoriamente 3 de ellas
+questions_to_ask = random.sample(list(zip(questions, answers, 
+        correct_answers_index)), k=3)
 # El usuario deberá contestar 3 preguntas
 for question,answer,correct_answer in questions_to_ask:
     # Se muestra la pregunta 
@@ -36,14 +39,11 @@ for question,answer,correct_answer in questions_to_ask:
     # El usuario tiene 2 intentos para responder correctamente
     for intento in range(2):
         user_answer = (input("Respuesta: ")) 
-        # Verifico que el dato ingresado se encuentre dentro del rango de respuestas posibles y, si lo está, lo convierte en int
-        for i in range (1,5):
-            i = str(i)
-            if user_answer == i:
-                user_answer = int(user_answer) - 1
-                break
-        # Verifico que el dato sea tipo int
-        if type(user_answer) != int:
+        # Verifico que el dato ingresado se encuentre dentro del rango de 
+        # respuestas posibles
+        if user_answer in ["1","2","3","4"]:
+            user_answer = int(user_answer) - 1
+        else:
             print("Respuesta no válida")
             exit(1)
         # Se verifica si la respuesta es correcta
@@ -54,9 +54,11 @@ for question,answer,correct_answer in questions_to_ask:
         else:
             points -= 0.5
     else:
-        # Si el usuario no responde correctamente después de 2 intentos, se muestra la respuesta correcta
+        # Si el usuario no responde correctamente después de 2 intentos, 
+        # se muestra la respuesta correcta
         print("Incorrecto. La respuesta correcta es:")
         print(answer[correct_answer])
         # Se imprime un blanco al final de la pregunta
     print()
+# Se imprime el puntaje total
 print(f"Su puntaje final fue de {points} puntos.")
