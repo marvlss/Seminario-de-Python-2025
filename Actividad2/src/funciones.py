@@ -1,5 +1,10 @@
 # Mis funciones
-
+def print_ranking(round):
+    print (f"{"Jugador":<9} {"Kills":<7} {"Asistencias":<13} {"Muertes":<9} {"MVPs":<6} {"Puntos":<8}")
+    print ("-"*56)
+    for key in round:
+        print (f"{key:<9} {round[key]["kills"]:<7} {round[key]["assists"]:<13} {round[key]["deaths"]:<9} {round[key]["mvps"]:<6} {round[key]["points"]:<6}")
+    print ("-"*56)
 
 def increase_values(ROriginal, RFinal):
     max = 0
