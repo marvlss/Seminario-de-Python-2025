@@ -1,4 +1,4 @@
-#Cómo instalar las dependencias y ejecutar el programa
+# Cómo instalar las dependencias y ejecutar el programa
 1. Tener la versión de Python 3.x 
 2. Instalar las dependecias: Ejercuta el comando "pip install -r requirements.txt" sin las comillas.
 3. Ejecuta el proyecto: 
